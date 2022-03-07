@@ -2,7 +2,7 @@ fil=$1
 if [ -e $fil ]
 then
 set -- `ls -ld $fil`
-echo " the generation time is $6 $7 $8"
+echo " the file modification is on $6 $7 at $8"
 else
 echo "file doesnot exit"
 fi

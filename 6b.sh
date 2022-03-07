@@ -2,7 +2,7 @@ for i in `ls`
 do
 r=`expr length $i`
 if [ $r -ge 10 ]
-then 
+then
 echo $i
 fi
 done
