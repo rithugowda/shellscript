@@ -1,11 +1,11 @@
 
-if [ $# -eq 0 ]
+if [ $# -ne 0 ]
  then
- echo “please enter arguments”
- 
- fi
+ if [ -e $* ]
+ then
  if [ -f $* ]
  then
+ 
  for i in $*
  do
  dir=/home/rithesh/mydir
@@ -20,5 +20,12 @@ then
  fi
  done
  else
- echo " it is not a file"
+ echo " it is not a file "
  fi
+ else
+ echo " file does not exit"
+ fi
+ else
+ echo “please enter arguments”
+ 
+fi
