@@ -16,7 +16,7 @@ fi
 h=`expr $shr - $uhr`
 m=`expr $smin - $umin`
 echo "user name : $usr"
-echo "login period : $h : $m"
+echo "login period : $h Hours: $m Minute"
 else
 echo "Invalid User"
 fi
