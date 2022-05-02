@@ -1,7 +1,7 @@
 BEGIN{
 	FS="|"
 	printf("\n");
-	print("\tEmpID\t Name\t         Designation\t   DOJ\t        Salary\tHRA\t DA\t Gross");
+	print("Sl_no\tEmpID\t Name\t         Designation\t   DOJ\t        Salary\tHRA\t DA\t Gross");
 	printf("----------------------------------------------------------------------------------------  \n");
 }
 
