@@ -1,11 +1,14 @@
-
-if [ "$2" != " " ]
+if [ $# != " " ]
 then
-cwd=`pwd`
-cd $2
-link=`ls -l $1 | tr -s " " | cut -d " " -f 2`
-cd $cwd
+if [ -f $1 ]
+then
+cd `pwd`
+link=`ls -l $1 | tr -s " " | cut -d " " -f 2 | head -c 3`
+
 else
-link=`ls -l $1 | tr -s " " | cut -d " " -f 2`
+cd ..
+
+link=`ls -l $1 | tr -s " " | cut -d " " -f 2 | head -c 3`
 fi
-echo "Number of linkes of file $1: $link"
+fi
+echo $link
