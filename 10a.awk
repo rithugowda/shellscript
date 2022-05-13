@@ -2,7 +2,7 @@ BEGIN{
 	FS="-"
 
 
-	getline str
+	 str = ARGV[1]
 	split(str,a,"-")
 
 	if((a[2]>0 && a[2]<=12) && (a[1]>0 && a[1]<=31))
