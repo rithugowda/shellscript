@@ -1,6 +1,6 @@
 BEGIN{
-printf ("please enter a date \n")
-getline str 
+FS="-"
+ str = ARGV[1]
 split(str,a,"-")
 
 
