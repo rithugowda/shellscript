@@ -8,13 +8,13 @@ if [ $# -ne 0 ]
  
  for i in $*
  do
- dir=/home/rithesh/mydir
-if [ -e $dir ]
+ 
+if [ -e ~/mydir ]
 then
  ls $*
  cat $*
  
- cp  $* $dir
+ cp  $* ~/mydir
  else
  echo "Mydir is  not exits to do copy"
  fi
