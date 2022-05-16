@@ -1,14 +1,29 @@
-if [ $# != " " ]
+if [ $# -ge 1 ]
 then
-if [ -f $1 ]
-then
-cd `pwd`
-link=`ls -l $1 | tr -s " " | cut -d " " -f 2 | head -c 3`
-
+	if [ $# -eq 2 ]
+	then
+		sd=$2
+	else
+		sd="."
+	fi
+	
+	file=$1
+	if [ -f $file ]
+	then
+		
+		set -- `ls -i $file`
+		inode=$1
+		tfiles=`find $sd -inum $inode | wc -l`
+		if [ $tfiles -eq 1 ]
+		then
+			echo "$file has no link files"
+		else
+			find $sd -inum $inode
+			echo "The inode number for $tfiles files is $inode"
+		fi
+	else
+		echo "Give valid file"
+	fi
 else
-cd ..
-
-link=`ls -l $1 | tr -s " " | cut -d " " -f 2 | head -c 3`
+	echo "Give atleast one arguement"
 fi
-fi
-echo $link
