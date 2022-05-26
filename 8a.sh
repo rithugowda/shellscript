@@ -11,6 +11,11 @@ then
 	
 	h=`expr $shr - $uhr`
 	m=`expr $smin - $umin`
+if [ $m -lt 0 ]
+then
+	h=`expr $h - 1`
+	m=`expr $m + 60`
+fi
 	echo "user name : $usr"
 	echo "login period : $h Hours: $m Minute"
 else
