@@ -1,27 +1,60 @@
-
 if [ $# -ne 0 ]
 then
+  
+  
 
-
-	for i in $*
-	do
+	 for i in $*
+do
 
 		if [ -e ~/mydir ]
 		then
+                         
 
-
-			if [ `ls ~/mydir | grep $i* | wc -l` -eq 0 ]
+			if [ `ls ~/mydir | grep $i* | wc -l` -ne 0 ]
 			then
-				ls $i*
-				cat $i*
-				cp  $* ~/mydir
+			echo file $i already exist
+			
 			else
-				echo cant copy  $i is already exit in mydir
+			
+			while [ `ls ~/mydir | grep $i* | wc -l` -eq 0 ]
+			
+		             do
+	
+				ls $*
+				cat $*
+				cp  $* ~/mydir
+			
+			
+			done
+			break
+			
 			fi
 		else
-			echo "Mydir is  not exits to do copy"
+			mkdir ~/mydir
+			if [ `ls ~/mydir | grep $i* | wc -l` -ne 0 ]
+			then
+			echo file $i already exist
+			
+			else
+			
+			while [ `ls ~/mydir | grep $i* | wc -l` -eq 0 ]
+			
+		             do
+	
+				ls $*
+				cat $*
+				cp  $* ~/mydir
+			
+			
+			done
+			break
+			
+			fi
 		fi
-	done
+		
+		done
+		
+		
 else
 
 	echo “please enter arguments”
