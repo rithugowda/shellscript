@@ -1,30 +1,37 @@
-if [ $# -ne 0 ]
+if [ $# -ge 1 ]
 then
 	if [ ! -e ~/mydir ]
 	then
 		mkdir ~/mydir
-	fi
-	if [ -e $1 ]
-	then
-		for i in $*
-		do
-			if [ `ls ~/mydir | grep $i* | wc -l` -ne 0 ]
-			then
-				echo file $i already exist
-			else
+	fi 
 
-				while [ `ls ~/mydir | grep $i* | wc -l` -eq 0 ]
-				do
-					ls $*
-					cat $*
-					cp  $* ~/mydir					
-				done
-				break
-			fi		
-		done
-	else
-		echo no such file
-	fi
+	for k in $*
+	do 
+		if [ -f $k ]
+		then 
+
+			if [ `ls ~/mydir | grep $k* | wc -l` -ne 0 ]
+
+			then
+
+				ls $k
+				echo "========================="
+				cat $k
+				echo "========================="
+				echo $k exist in mydir
+				continue
+			fi    		      			
+
+			ls $k
+			echo "========================="
+			cat $k
+			echo "========================="
+			cp $k ~/mydir
+		else
+			echo No file with pattern $k  
+		fi
+	done
+	exit
 else
-	echo “please enter arguments”
+	echo enter the pattern
 fi
